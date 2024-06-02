@@ -1,7 +1,7 @@
 export const CONFIG = {
     nomeProgetto : 'PochyxiGitHub',
     mostraEsecuzione : true,
-    mostraDashboard : false,
+    mostraDashboard : true,
     larghezzaFinestraInPixels : 1200,
     altezzaFinestraInPixels : 800,
     attesaPrimaDelFallimentoInSecondi : 30

@@ -1,6 +1,6 @@
 # PLAYWRIGHT ADI FRAMEWORK
 
-Questo framework di automazione dei test è progettato per semplificare l'esecuzione di test utilizzando [Playwright](https://playwright.dev/). L'unico prerequisito per utilizzare questo framework è avere installato [Node.js](https://nodejs.org/it/).
+Questo framework di automazione dei test è progettato per semplificare l'esecuzione di test utilizzando [Playwright](https://playwright.dev/) e [Allure Report Docs](https://allurereport.org/docs/playwright/). L'unico prerequisito per utilizzare questo framework è avere installato [Node.js](https://nodejs.org/it/).
 
 ## Installazione
 

@@ -133,15 +133,3 @@ Dopo l'esecuzione dei test, il framework genera automaticamente report in divers
 - Per generare il report di Allure e aprire la dashboard e il programma di visualizzazione delle tracce, esegui: `npm run allure`
 
 - Per aprire il programma di visualizzazione delle tracce, esegui: `npm run trace`
-
-## Contributi
-
-Sono benvenuti contributi al progetto! Se desideri contribuire, segui questi passaggi:
-
-1. Forka il repository
-2. Crea un nuovo branch per la tua funzionalità o correzione di bug
-3. Effettua le modifiche necessarie
-4. Invia una pull request con una descrizione dettagliata delle modifiche apportate
-
-## Licenza
-Questo progetto è rilasciato sotto la licenza [MIT](https://opensource.org/licenses/MIT).

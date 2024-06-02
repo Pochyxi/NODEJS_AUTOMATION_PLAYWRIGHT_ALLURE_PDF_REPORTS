@@ -1,0 +1,34 @@
+{
+  "name": "new-playwright-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "START.ts",
+  "scripts": {
+    "start": "ts-node START.ts",
+    "allure": "ts-node ALLURE.ts",
+    "trace": "ts-node TRACE.ts",
+    "test": "playwright test --headed",
+    "test:reporter": "playwright test --headed --reporter=allure-playwright,line",
+    "allure-report": "npx allure generate ./allure-results --clean && allure open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.44.1",
+    "@types/cli-color": "^2.0.6",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.13.0",
+    "playwright": "^1.44.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.22.4",
+    "allure-playwright": "^2.15.1",
+    "cli-color": "^2.0.4",
+    "fs-extra": "^11.2.0",
+    "pdfkit": "^0.15.0",
+    "winston": "^3.13.0"
+  }
+}

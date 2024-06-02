@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "PochyxiGitHub",
+    "browsers": [
+      "chrome"
+    ],
+    "runType": "cap",
+    "runName": "Ricerca"
+  },
+  "tests": {
+    "Ricerca": {
+      "Ricerca_soggetto": {
+        "description": "Il test si concentrerà sulla ricerca e la visualizzazione dei progetti contenuti nel profilo di Pochyxi, cioè il mio account GitHub",
+        "preRequisite": "Il prerequisito non è altro che una condizione che deve verificarsi prima che abbia inizio il test",
+        "testStep": [
+          {
+            "stepName": "Atterraggio pagina principale di google dove andremo a ricercare GitHub",
+            "actionName": "atterraggio_pagina",
+            "args": {
+              "url": "https://www.google.it"
+            }
+          },
+          {
+            "stepName": "Settaggio dello storage per la sessione",
+            "actionName": "settaggio_storage",
+            "args": {
+              "storageType": "local",
+              "storageConfigName": "session-storage-state"
+            }
+          },
+          {
+            "stepName": "Clic bottone Accetta tutto",
+            "actionName": "clicca",
+            "args": {
+              "selector": "#L2AGLb > div"
+            }
+          },
+          {
+            "stepName": "Inserite il nome GitHub nell'input-box",
+            "actionName": "inserisci_testo",
+            "args": {
+              "selector": "#APjFqb",
+              "text": "GitHub"
+            }
+          },
+          {
+            "stepName": "Click, tasto Cerca con Google",
+            "actionName": "clicca",
+            "args": {
+              "selector": "body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf.emcav > div.UUbT9.EyBRub > div.aajZCb > div.lJ9FBc > center > input.gNO89b"
+            }
+          },
+          {
+            "stepName": "Click link GitHub",
+            "actionName": "clicca",
+            "args": {
+              "selector": "h3:has-text(\"GitHub: Let's build from here · GitHub\")"
+            }
+          },
+          {
+            "stepName": "Click icona GitHub per andare alla home",
+            "actionName": "clicca",
+            "args": {
+              "selector": "body > div.logged-out.env-production.page-responsive > div.position-relative.js-header-wrapper > header > div > div.d-flex.flex-justify-between.flex-items-center.width-full.width-lg-auto > a > svg"
+            }
+          },
+          {
+            "stepName": "Verificare il corretto atterraggio sulla Home page di GitHub",
+            "actionName": "controlla",
+            "args": {
+              "selector": "body > div.logged-out.env-production.page-responsive.header-overlay.home-campaign > div.position-relative.js-header-wrapper > header > div > div.d-flex.flex-justify-between.flex-items-center.width-full.width-lg-auto > a > svg"
+            }
+          },
+          {
+            "stepName": "Click campo di ricerca",
+            "actionName": "clicca",
+            "args": {
+              "selector": "body > div.logged-out.env-production.page-responsive.header-overlay.home-campaign > div.position-relative.js-header-wrapper > header > div > div.HeaderMenu--logged-out.p-responsive.height-fit.position-lg-relative.d-lg-flex.flex-column.flex-auto.pt-7.pb-4.top-0 > div > div > qbsearch-input > div.search-input-container.search-with-dialog.position-relative.d-flex.flex-row.flex-items-center.mr-4.rounded > button > span"
+            }
+          },
+          {
+            "stepName": "Inserite il nome pochyxi nell'input-box",
+            "actionName": "inserisci_testo",
+            "args": {
+              "selector": "#query-builder-test",
+              "text": "pochyxi"
+            }
+          },
+          {
+            "stepName": "Click su cerca tutto",
+            "actionName": "clicca",
+            "args": {
+              "selector": "#query-builder-test-result-pochyxi > span > span.ActionListItem-description.QueryBuilder-ListItem-trailing"
+            }
+          },
+          {
+            "stepName": "Click su Users",
+            "actionName": "clicca",
+            "args": {
+              "selector": "span:has-text(\"Users\")"
+            }
+          },
+          {
+            "stepName": "Click su Adiener Lopez Velazquez",
+            "actionName": "clicca",
+            "args": {
+              "selector": "a:has-text(\"Adiener Lopez Velazquez\")"
+            }
+          },
+          {
+            "stepName": "Dalla pagina principale, selezionare il menu 'Repositories'",
+            "actionName": "clicca",
+            "args": {
+              "selector": "body > div.logged-out.env-production.page-responsive.page-profile > div.application-main > main > div.mt-4.position-sticky.top-0.d-none.d-md-block.color-bg-default.width-full.border-bottom.color-border-muted > div > div > div.Layout-main > div > nav > a:nth-child(2)"
+            }
+          },
+          {
+            "stepName": "Verificare la presenza del progetto NODEJS_TS_PLAYWRIGHT_ALLURE_TESTING_FRAMEWORK",
+            "actionName": "controlla",
+            "args": {
+              "selector": "#user-repositories-list > ul > li:nth-child(1)"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

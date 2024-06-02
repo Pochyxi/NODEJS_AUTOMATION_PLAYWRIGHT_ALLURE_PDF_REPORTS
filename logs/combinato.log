@@ -1,0 +1,27 @@
+02-06-2024 13:32:55 [[32minfo[39m]: 	Inizializzazione con i seguenti parametri:
+02-06-2024 13:32:55 [[32minfo[39m]: 	JSON di configurazione: ./test-suites/PochyxiGitHub.json
+02-06-2024 13:32:55 [[32minfo[39m]: 	Larghezza finestra browser: 1200
+02-06-2024 13:32:55 [[32minfo[39m]: 	Altezza finestra browser: 800
+02-06-2024 13:32:55 [[32minfo[39m]: 	Inizializzo capitolo Ricerca
+02-06-2024 13:32:55 [[32minfo[39m]: 	Esecizione Ricerca_soggetto: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+02-06-2024 13:32:57 [[32minfo[39m]: 	Inizializzazione con i seguenti parametri:
+02-06-2024 13:32:57 [[32minfo[39m]: 	JSON di configurazione: ./test-suites/PochyxiGitHub.json
+02-06-2024 13:32:57 [[32minfo[39m]: 	Larghezza finestra browser: 1200
+02-06-2024 13:32:57 [[32minfo[39m]: 	Altezza finestra browser: 800
+02-06-2024 13:32:57 [[32minfo[39m]: 	Inizializzo capitolo Ricerca
+02-06-2024 13:32:57 [[32minfo[39m]: 	Esecizione Ricerca_soggetto: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+02-06-2024 13:32:57 [[32minfo[39m]: 	Raggiungo pagina -> https://www.google.it
+02-06-2024 13:33:01 [[32minfo[39m]: 	[object Object]
+02-06-2024 13:33:01 [[32minfo[39m]: 	Eseguo click del selettore: #L2AGLb > div
+02-06-2024 13:33:01 [[32minfo[39m]: 	Inserisco ['GitHub'] nel selettore: #APjFqb
+02-06-2024 13:33:02 [[32minfo[39m]: 	Eseguo click del selettore: body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf.emcav > div.UUbT9.EyBRub > div.aajZCb > div.lJ9FBc > center > input.gNO89b
+02-06-2024 13:33:02 [[32minfo[39m]: 	Eseguo click del selettore: h3:has-text("GitHub: Let's build from here · GitHub")
+02-06-2024 13:33:06 [[32minfo[39m]: 	Eseguo click del selettore: body > div.logged-out.env-production.page-responsive > div.position-relative.js-header-wrapper > header > div > div.d-flex.flex-justify-between.flex-items-center.width-full.width-lg-auto > a > svg
+02-06-2024 13:33:06 [[32minfo[39m]: 	Controlle l'elemento con selettore: body > div.logged-out.env-production.page-responsive.header-overlay.home-campaign > div.position-relative.js-header-wrapper > header > div > div.d-flex.flex-justify-between.flex-items-center.width-full.width-lg-auto > a > svg
+02-06-2024 13:33:07 [[32minfo[39m]: 	Eseguo click del selettore: body > div.logged-out.env-production.page-responsive.header-overlay.home-campaign > div.position-relative.js-header-wrapper > header > div > div.HeaderMenu--logged-out.p-responsive.height-fit.position-lg-relative.d-lg-flex.flex-column.flex-auto.pt-7.pb-4.top-0 > div > div > qbsearch-input > div.search-input-container.search-with-dialog.position-relative.d-flex.flex-row.flex-items-center.mr-4.rounded > button > span
+02-06-2024 13:33:07 [[32minfo[39m]: 	Inserisco ['pochyxi'] nel selettore: #query-builder-test
+02-06-2024 13:33:08 [[32minfo[39m]: 	Eseguo click del selettore: #query-builder-test-result-pochyxi > span > span.ActionListItem-description.QueryBuilder-ListItem-trailing
+02-06-2024 13:33:08 [[32minfo[39m]: 	Eseguo click del selettore: span:has-text("Users")
+02-06-2024 13:33:10 [[32minfo[39m]: 	Eseguo click del selettore: a:has-text("Adiener Lopez Velazquez")
+02-06-2024 13:33:10 [[32minfo[39m]: 	Eseguo click del selettore: body > div.logged-out.env-production.page-responsive.page-profile > div.application-main > main > div.mt-4.position-sticky.top-0.d-none.d-md-block.color-bg-default.width-full.border-bottom.color-border-muted > div > div > div.Layout-main > div > nav > a:nth-child(2)
+02-06-2024 13:33:11 [[32minfo[39m]: 	Controlle l'elemento con selettore: #user-repositories-list > ul > li:nth-child(1)

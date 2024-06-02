@@ -2,7 +2,9 @@
   "info": {
     "name": "PochyxiGitHub",
     "browsers": [
-      "chrome"
+      "chrome",
+      "firefox",
+      "safari"
     ],
     "runType": "cap",
     "runName": "Ricerca"

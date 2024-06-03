@@ -101,6 +101,10 @@ export class ActionExecutor {
 
             for (const stepObj of this.arrOfStepObj) {
                 try {
+                    if (stepObj.args.ritardo) {
+                        await this.delay(stepObj.args.ritardo);
+                    }
+
                     await this.executeStep(stepObj, page, testinfo);
                 } catch (error) {
 
@@ -113,6 +117,10 @@ export class ActionExecutor {
 
             await this.pdfReporter.savePDF(this.pdfName, false);
         });
+    }
+
+    async delay(seconds: number): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, seconds * 1000));
     }
 
     private async executeStep(stepObj: StepObj, page: Page, testinfo: TestInfo) {

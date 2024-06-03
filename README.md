@@ -40,6 +40,9 @@ Ogni test è composto da una serie di passaggi (`testStep`) che rappresentano le
 
 Il framework supporta le seguenti azioni predefinite:
 
+- `ritardo`: Tutti gli step hanno la possibilità di includere un ritardo in secondi
+    - Args: `ritardo`
+
 - `settaggio_storage`: Imposta un valore nello storage del browser (local o session)
     - Args: `storageConfigName` (nome del file JSON contenente i valori da impostare), `storageType` (local o session)
 

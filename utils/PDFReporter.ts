@@ -81,7 +81,7 @@ export class PDFReporter {
         this.doc.fillColor('#B7B7B7');
 
         for (let stringStep of ArrOfSteps) {
-            if (this.getCurrentPage() > 1 && this.stepCheckBG === true) {
+            if (this.getCurrentPage() > 1 && this.stepCheckBG) {
                 this.doc.rect(0, 0, this.doc.page.width, this.doc.page.height).fill('#222222');
                 this.stepCheckBG = false
                 this.doc.fillColor('#B7B7B7');
@@ -121,7 +121,7 @@ export class PDFReporter {
     }
 
     async savePDF(filename:string, failed:string | boolean) {
-        const [name, project, date, time] = filename.split('__');
+        const [name, project, date] = filename.split('__');
         const [year, month, day] = date.split('_');
         const pdfFolderPath = path.join(__dirname, '../PDFReports/' + project);
         const imgFolderPath = path.join(__dirname, '../PDFReports/', 'img'); // Path per la cartella img
@@ -131,20 +131,7 @@ export class PDFReporter {
         // Crea la cartella di destinazione
         await fs.promises.mkdir(pdfFolderPath, {recursive: true});
 
-        this.doc.fontSize(20);
-
-        if (failed) {
-            this.doc.moveDown(4);
-            this.doc.fillColor("red")
-            this.doc.text("FAILED", {align: 'center'})
-            this.doc.fontSize(12);
-            this.doc.text(failed, {align: 'center'})
-        } else {
-            this.doc.moveDown(4);
-            this.doc.fillColor("green")
-            this.doc.text("PASSED", {align: 'center'})
-        }
-
+        this.addFinalStatus(failed);
 
         // Salva il file PDF
         await new Promise((resolve, reject) => {
@@ -170,5 +157,21 @@ export class PDFReporter {
         }
 
         logger.info('Cartella img svuotata.');
+    }
+
+    addFinalStatus(failed: string | boolean) {
+        this.doc.addPage();
+        this.doc.moveDown(20);
+        this.doc.fontSize(20);
+
+        if (failed) {
+            this.doc.fillColor("red");
+            this.doc.text("FAILED", { align: 'center' });
+            this.doc.fontSize(12);
+            this.doc.text(failed, { align: 'center' });
+        } else {
+            this.doc.fillColor("green");
+            this.doc.text("PASSED", { align: 'center' });
+        }
     }
 }

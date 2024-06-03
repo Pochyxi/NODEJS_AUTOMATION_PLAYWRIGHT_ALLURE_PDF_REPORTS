@@ -7,5 +7,6 @@ export interface StepObj {
         url?: string;
         storageType?: string;
         storageConfigName?: string;
+        ritardo?: number;
     };
 }

@@ -40,7 +40,7 @@ Ogni test è composto da una serie di passaggi (`testStep`) che rappresentano le
 
 Il framework supporta le seguenti azioni predefinite:
 
-- `ritardo`: Tutti gli step hanno la possibilità di includere un ritardo in secondi
+- `ritardo`: Tutti gli step hanno la possibilità di includere un ritardo in secondi (lo screenshot del pdf sarà preso dopo il ritardo specificato)
     - Args: `ritardo`
 
 - `settaggio_storage`: Imposta un valore nello storage del browser (local o session)

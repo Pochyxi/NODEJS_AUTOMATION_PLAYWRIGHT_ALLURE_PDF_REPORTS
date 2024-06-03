@@ -15,7 +15,6 @@ import { StepObj } from "../models/StepObj";
 import { DateStringObj } from "../models/DateStringObj";
 import logger from "../winston/Winston";
 
-
 export class ActionExecutor {
     private readonly test: any;
     private readonly projectObj: JSONScribe;
@@ -101,11 +100,14 @@ export class ActionExecutor {
 
             for (const stepObj of this.arrOfStepObj) {
                 try {
+                    await this.executeStep(stepObj, page);
+
                     if (stepObj.args.ritardo) {
                         await this.delay(stepObj.args.ritardo);
+                        await this.takeScreenshot(page, testinfo, stepObj.stepName)
+                    } else {
+                        await this.takeScreenshot(page, testinfo, stepObj.stepName)
                     }
-
-                    await this.executeStep(stepObj, page, testinfo);
                 } catch (error) {
 
                     logger.error(`Errore durante l'esecuzione dello step ${stepObj.stepName}: ${error}`);
@@ -123,7 +125,7 @@ export class ActionExecutor {
         return new Promise(resolve => setTimeout(resolve, seconds * 1000));
     }
 
-    private async executeStep(stepObj: StepObj, page: Page, testinfo: TestInfo) {
+    private async executeStep(stepObj: StepObj, page: Page) {
 
         switch (stepObj.actionName) {
             case 'settaggio_storage':
@@ -135,34 +137,34 @@ export class ActionExecutor {
 
             case 'atterraggio_pagina':
                 await this.withTimeout(
-                    this.atterraggioPagina(stepObj.args.url!, page, testinfo), this.internalTimeout
+                    this.atterraggioPagina(stepObj.args.url!, page), this.internalTimeout
                 );
                 break;
 
             case 'clic_radio_e_controlla_stato':
                 await this.withTimeout(
-                    this.clickAndCheckInputRadio(page, testinfo, stepObj.stepName, stepObj.args.selector!),
+                    this.clickAndCheckInputRadio(page, stepObj.stepName, stepObj.args.selector!),
                     this.internalTimeout,
                 );
                 break;
 
             case 'clicca':
                 await this.withTimeout(
-                    this.click(page, testinfo, stepObj.stepName, stepObj.args.selector!),
+                    this.click(page, stepObj.stepName, stepObj.args.selector!),
                     this.internalTimeout
                 );
                 break;
 
             case 'inserisci_testo':
                 await this.withTimeout(
-                    this.writeFill(page, testinfo, stepObj.stepName, stepObj.args.selector!, stepObj.args.text!),
+                    this.writeFill(page, stepObj.stepName, stepObj.args.selector!, stepObj.args.text!),
                     this.internalTimeout,
                 );
                 break;
 
             case 'controlla':
                 await this.withTimeout(
-                    this.controlla(page, testinfo, stepObj.stepName, stepObj.args.selector!),
+                    this.controlla(page, stepObj.stepName, stepObj.args.selector!),
                     this.internalTimeout
                 );
                 break;
@@ -231,28 +233,24 @@ export class ActionExecutor {
         logger.info(`CONTENUTO ${storageType.toUpperCase()} STORAGE DOPO INIZIALIZZAZIONE: ${JSON.stringify(sessionStorageData)}`);
     }
 
-    async atterraggioPagina(url: string, page: Page, testinfo: TestInfo) {
+    async atterraggioPagina(url: string, page: Page) {
 
         logger.info(`Raggiungo pagina -> ${url}`);
 
         await this.test.step('Atterraggio Pagina', async () => {
             await page.goto(url);
-
-            await this.takeScreenshot(page, testinfo, 'Raggiungo pagina');
         });
     }
 
-    async click(page: Page, testinfo: TestInfo, stepName: string, selector: string) {
+    async click(page: Page, stepName: string, selector: string) {
 
         await this.test.step(stepName, async () => {
             logger.info(`Eseguo click del selettore: ${selector}`);
             await page.locator(selector).click();
-
-            await this.takeScreenshot(page, testinfo, stepName);
         });
     }
 
-    async clickAndCheckInputRadio(page: Page, testinfo: TestInfo, stepName: string, inputRadioSelector: string) {
+    async clickAndCheckInputRadio(page: Page, stepName: string, inputRadioSelector: string) {
 
         await this.test.step(stepName, async () => {
 
@@ -264,32 +262,26 @@ export class ActionExecutor {
 
             logger.info(`Il radio button è selezionato? ${boolInputRadio1Selector}`);
             expect(boolInputRadio1Selector).toBeTruthy();
-
-            await this.takeScreenshot(page, testinfo, stepName);
         });
     }
 
-    async writeFill(page: Page, testinfo: TestInfo, stepName: string, selector: string, text: string) {
+    async writeFill(page: Page, stepName: string, selector: string, text: string) {
 
         await this.test.step(stepName, async () => {
 
             logger.info(`Inserisco ['${text}'] nel selettore: ${selector}`);
 
             await page.locator(selector).fill(text);
-
-            await this.takeScreenshot(page, testinfo, stepName);
         });
     }
 
-    async controlla(page: Page, testinfo: TestInfo, stepName: string, selector: string) {
+    async controlla(page: Page, stepName: string, selector: string) {
 
         await this.test.step(stepName, async () => {
 
             logger.info(`Controllo l'elemento con selettore: ${selector}`);
 
             await page.locator(selector).isVisible();
-
-            await this.takeScreenshot(page, testinfo, stepName);
         });
     }
 
@@ -310,9 +302,10 @@ export class ActionExecutor {
         const day = String(now.getDate()).padStart(2, '0');
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
 
-        const dateName = `${year}_${month}_${day}__${hours}_${minutes}`;
+        const dateName = `${year}_${month}_${day}__${hours}_${minutes}_${seconds}`;
 
-        return { dateName, year, month, day, hours, minutes };
+        return { dateName, year, month, day, hours, minutes, seconds };
     }
 }

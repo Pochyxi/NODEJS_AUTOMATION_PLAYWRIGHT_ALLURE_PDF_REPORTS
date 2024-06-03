@@ -5,4 +5,5 @@ export interface DateStringObj {
     day: string;
     hours: string;
     minutes: string;
+    seconds: string;
 }
